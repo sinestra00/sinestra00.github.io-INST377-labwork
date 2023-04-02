@@ -108,14 +108,22 @@ function getRandomIntInclusive(min, max) {
     const restaurantsList = cutRestaurantList(currentList)
     console.log(restaurantsList)
     injectHTML(restaurantsList)
-  
+
   })
   
+  textField.addEventListener('input', (event) => {
+    console.log('input',event.target.value)
+    const newList = filterList(currentList, formProps.resto)
+    console.log(restaurantsList)
+    injectHTML(restaurantsList)
+
+  })
+
   const formData = new FormData(mainForm)
   const formProps = Object.fromEntries(formData)
   
   console.log(formProps)
-  const newList = filterList(currentList, formProps.resto)
+  const newList = filterList(currentList, event.target.value)
   injectHTML(currentList)
   
   console.log(newList)
